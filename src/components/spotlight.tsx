@@ -4,8 +4,7 @@ import { useEffect, useRef } from "react";
 
 /**
  * Pointer-following light for desktop. Writes --mx/--my on its own element,
- * throttled to one update per animation frame. Inert on touch devices and
- * when the user prefers reduced motion.
+ * throttled to one update per animation frame. Inert on touch devices.
  */
 export function Spotlight({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,8 +14,7 @@ export function Spotlight({ className = "" }: { className?: string }) {
     const host = el?.parentElement;
     if (!el || !host) return;
     const fine = window.matchMedia("(pointer: fine)").matches;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!fine || reduced) return;
+    if (!fine) return;
 
     let frame = 0;
     const onMove = (e: PointerEvent) => {
