@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { MotionProvider } from "@/components/motion-provider";
 import { themeBootScript } from "@/lib/theme";
@@ -8,19 +8,12 @@ import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["italic"],
-  variable: "--font-instrument",
-  display: "swap",
-});
 
-const title = `${site.shortName} — ${site.role}`;
+const title = `${site.shortName} | ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.siteUrl),
-  title: { default: title, template: `%s — ${site.shortName}` },
+  title: { default: title, template: `%s | ${site.shortName}` },
   description: site.description,
   applicationName: site.shortName,
   authors: [{ name: site.name, url: site.links.github || undefined }],
@@ -74,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
+      className={`${geist.variable} ${geistMono.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

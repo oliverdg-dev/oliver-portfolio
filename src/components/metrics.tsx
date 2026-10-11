@@ -25,7 +25,7 @@ export function Metrics() {
             </dd>
             <dt className="order-2 flex flex-col gap-3 text-sm leading-snug text-paper/85">
               {m.label}
-              <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-dim">{m.source}</span>
+              <span className="text-xs text-dim">{m.source}</span>
             </dt>
           </Reveal>
         ))}

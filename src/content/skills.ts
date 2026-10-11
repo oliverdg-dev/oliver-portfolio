@@ -37,13 +37,12 @@ import {
 } from "simple-icons";
 
 export type Skill = { name: string; icon?: SimpleIcon; glyph?: string };
-export type SkillGroup = { id: string; title: string; blurb: string; skills: Skill[] };
+export type SkillGroup = { id: string; title: string; skills: Skill[] };
 
 export const skillGroups: SkillGroup[] = [
   {
     id: "dev",
     title: "Programming & development",
-    blurb: "Languages and frameworks I build products with.",
     skills: [
       { name: "Python", icon: siPython },
       { name: "SQL", glyph: "SQL" },
@@ -64,7 +63,6 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "ai",
     title: "AI & LLMs",
-    blurb: "Models and techniques I integrate into real workflows.",
     skills: [
       { name: "Claude", icon: siClaude },
       { name: "OpenAI", glyph: "OA" },
@@ -78,7 +76,6 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "data",
     title: "Databases & platforms",
-    blurb: "Where the data lives.",
     skills: [
       { name: "MySQL", icon: siMysql },
       { name: "PostgreSQL", icon: siPostgresql },
@@ -91,7 +88,6 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "automation",
     title: "Automation & integrations",
-    blurb: "Glue that removes manual steps.",
     skills: [
       { name: "n8n", icon: siN8n },
       { name: "Resend", icon: siResend },
@@ -101,7 +97,6 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "commerce",
     title: "E-commerce & CMS",
-    blurb: "Storefronts and content.",
     skills: [
       { name: "Shopify", icon: siShopify },
       { name: "WordPress", icon: siWordpress },
@@ -110,7 +105,6 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "devops",
     title: "Deployment & DevOps",
-    blurb: "Shipping it.",
     skills: [
       { name: "Vercel", icon: siVercel },
       { name: "Docker", icon: siDocker },

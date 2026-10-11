@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/content/site";
 
-export const alt = `${site.shortName} — ${site.role}`;
+export const alt = `${site.shortName} | ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
           <span>Designing better experiences.</span>
         </div>
         <div style={{ display: "flex", fontSize: 24, color: "#9a9aa1" }}>
-          Full-stack · AI integrations · Workflow automation
+          Full-stack, AI integrations and workflow automation
         </div>
       </div>
     ),

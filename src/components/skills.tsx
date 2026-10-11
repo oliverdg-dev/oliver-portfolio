@@ -37,35 +37,18 @@ export function Skills() {
   const total = skillGroups.reduce((n, g) => n + g.skills.length, 0);
   return (
     <section id="skills" aria-labelledby="skills-title" className="shell py-24 sm:py-32">
-      <SectionHeading
-        id="skills-title"
-        index="04"
-        eyebrow="Toolkit"
-        title={
-          <>
-            Breadth, <span className="serif-accent text-accent">applied.</span>
-          </>
-        }
-        aside={`${total} tools across six disciplines — chosen for the job, not collected for the list.`}
-      />
+      <SectionHeading id="skills-title" title="Tools I work with" aside={`${total} tools across six areas.`} />
 
-      <div className="mt-16 border-t border-line">
+      {/* Groups flow in balanced columns instead of ruled rows. */}
+      <div className="mt-16 gap-x-14 md:columns-2">
         {skillGroups.map((group, i) => (
-          <Reveal key={group.id} delay={i * 0.04}>
-            <div className="grid gap-5 border-b border-line py-8 md:grid-cols-12 md:gap-6 md:py-10">
-              <div className="md:col-span-4">
-                <h3 className="flex items-baseline gap-3 text-lg tracking-tight text-paper">
-                  <span className="font-mono text-[11px] text-dim">0{i + 1}</span>
-                  {group.title}
-                </h3>
-                <p className="mt-1 pl-8 text-sm text-dim">{group.blurb}</p>
-              </div>
-              <ul className="flex flex-wrap content-start items-start gap-2 md:col-span-8">
-                {group.skills.map((s) => (
-                  <SkillChip key={s.name} skill={s} />
-                ))}
-              </ul>
-            </div>
+          <Reveal key={group.id} delay={(i % 2) * 0.06} className="mb-12 break-inside-avoid">
+            <h3 className="mb-4 text-lg tracking-tight text-paper">{group.title}</h3>
+            <ul className="flex flex-wrap content-start items-start gap-2">
+              {group.skills.map((s) => (
+                <SkillChip key={s.name} skill={s} />
+              ))}
+            </ul>
           </Reveal>
         ))}
       </div>

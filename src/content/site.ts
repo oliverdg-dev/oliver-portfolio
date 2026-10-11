@@ -1,5 +1,5 @@
 /**
- * Site configuration — edit this file to update personal links and settings.
+ * Site configuration: edit this file to update personal links and settings.
  *
  * Rules:
  * - Leave a URL as an empty string ("") when it is unknown. Empty links are
@@ -18,16 +18,18 @@ export const site = {
   shortName: "Oliver Garcia",
   monogram: "OG",
   role: "Software Developer",
-  focus: "Full-stack · AI integrations · Workflow automation",
-  /** Shown in the hero meta row. Set to "" to hide. */
+  /** Shown once, in the contact section. Set to "" to hide. */
   location: "Philippines",
   email: "oli.deniel.garcia@gmail.com",
 
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://oliver-portfolio-chi.vercel.app",
 
-  headline: ["Engineering software.", "Automating the complex.", "Designing better experiences."],
+  /** Two lines on desktop. `headlineAccent` is set in the accent colour (same font). */
+  headline: ["Engineering software. Automating the complex.", "Designing better experiences."],
+  headlineAccent: "complex.",
+  /** Keep under 20 words: the hero is a single moment, not a bio. */
   intro:
-    "I'm a software developer focused on building useful digital products, AI-powered workflows, and polished web experiences. I combine full-stack engineering with practical automation to turn complex processes into reliable, user-friendly solutions.",
+    "I build full-stack products, AI integrations and workflow automation that turn complex processes into reliable, usable software.",
 
   description:
     "Oliver Garcia is a software developer building full-stack products, AI integrations and workflow automation. Computer Science, University of Santo Tomas.",

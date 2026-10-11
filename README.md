@@ -44,16 +44,19 @@ All content lives in typed files in `src/content/`, so there's no need to touch 
 
 ### Adding real screenshots
 
-Each project falls back to an **illustrative, code-drawn preview** labelled "Illustrative preview", so nobody mistakes it for the production UI. To use a real screenshot:
+Without screenshots, each project shows a **type-led panel**: its real workflow stages plus its headline verified result. The panel is a diagram of how the system works, not a fake screenshot. To show real screenshots instead:
 
-1. Put the image in `public/projects/`, e.g. `public/projects/recruitment.png` (about 1600×1100 works well).
-2. Add it to the project in `projects.ts`:
+1. Put one or two images in `public/projects/<slug>/` (wide images around 1300×700 work well).
+2. Add them to the project in `projects.ts`:
    ```ts
-   image: { src: "/projects/recruitment.png", alt: "Admin request inbox of the recruitment platform" },
+   screens: [
+     { src: "/projects/recruitment/inbox.jpg", alt: "Admin request inbox", width: 1300, height: 700 },
+     { src: "/projects/recruitment/shortlist.jpg", alt: "Private shortlist page", width: 1300, height: 700 },
+   ],
    ```
-   `next/image` optimizes it (AVIF/WebP), and the "illustrative" label is removed automatically.
+   The first image is the main shot and the second overlaps it. A featured project with `screens` switches to the full-width case-study layout. SpeakUP is the working example.
 
-**Only use client or employer screenshots when you have permission.** The Amdocs entry deliberately uses an abstract visualization.
+**Only use client or employer screenshots when you have permission.** The Amdocs entry deliberately stays abstract.
 
 ### Toggling availability
 
@@ -63,7 +66,9 @@ Each project falls back to an **illustrative, code-drawn preview** labelled "Ill
 
 - **Color:** ink `#0a0a0b` surfaces, paper `#edece7` type, one lime accent `#c6f35a`, 1px white-alpha hairlines. The tokens live in `@theme` in `src/app/globals.css`.
 - **Themes:** dark by default, plus a light theme. The nav toggle saves the visitor's choice in `localStorage`; with no saved choice the OS setting is used. Both themes swap the same tokens (`:root[data-theme="light"]` in `globals.css`), so components never branch. Use `bg-tint/…` rather than `bg-white/…` for subtle overlays so they work in both themes.
-- **Type:** Geist (UI and display), Geist Mono (labels and metadata), Instrument Serif italic (accent words only). All are self-hosted via `next/font`.
+- **Type:** Geist for UI and display, Geist Mono for small labels, both self-hosted via `next/font`. Emphasis uses the accent colour in the same font, never a second typeface.
+- **Labels:** small uppercase labels are rationed to three on the page (hero, About, Contact). Section numbering and em-dashes are not used.
+- **Shape:** surfaces use a 12px radius; buttons, tags and chips are full pills.
 - **Layout:** a 12-column grid inside `.shell` (max 1440px, fluid gutters). Asymmetric splits are 7/5, 3/9 and 4/8.
 - **Motion:** one easing curve (`cubic-bezier(0.16, 1, 0.3, 1)`). The hero uses masked word reveals, and sections use reveal-once on scroll. Project visuals zoom gently on hover, and the pointer spotlight runs only on fine pointers. `MotionConfig reducedMotion="user"` and a global CSS rule honour `prefers-reduced-motion`.
 
@@ -87,6 +92,5 @@ npx vercel --prod # production
 src/
   app/            layout, page, metadata routes (OG image, icon, robots, sitemap), error/404
   components/     sections (hero, work, about, experience, skills, contact) + UI primitives
-    previews/     illustrative, code-drawn project previews
   content/        all editable content (typed)
 ```

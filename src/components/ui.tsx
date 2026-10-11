@@ -66,30 +66,29 @@ export function TextLink({
   );
 }
 
+/**
+ * Section header: one focused headline, optional body stacked underneath.
+ * Small uppercase labels are rationed page-wide (max one per three sections),
+ * so `eyebrow` is opt-in.
+ */
 export function SectionHeading({
-  index,
   eyebrow,
   title,
   aside,
   id,
 }: {
-  index: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   aside?: React.ReactNode;
   id: string;
 }) {
   return (
-    <header className="grid gap-8 border-t border-line pt-6 md:grid-cols-12">
-      <p className="eyebrow md:col-span-3">
-        <span className="text-accent">{index}</span> <span className="mx-2 text-dim">/</span> {eyebrow}
-      </p>
-      <div className="md:col-span-9">
-        <h2 id={id} className="display text-[clamp(2.5rem,6vw,5.5rem)]">
-          {title}
-        </h2>
-        {aside && <div className="mt-6 max-w-xl text-base leading-relaxed text-mute">{aside}</div>}
-      </div>
+    <header className="max-w-4xl">
+      {eyebrow && <p className="eyebrow mb-6">{eyebrow}</p>}
+      <h2 id={id} className="display text-[clamp(2.5rem,6vw,5.5rem)]">
+        {title}
+      </h2>
+      {aside && <div className="mt-6 max-w-[60ch] text-base leading-relaxed text-mute">{aside}</div>}
     </header>
   );
 }

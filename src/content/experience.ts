@@ -3,7 +3,9 @@
 export type Experience = {
   company: string;
   role: string;
-  period: string;
+  /** Human-readable start / end labels. */
+  startLabel: string;
+  endLabel: string;
   /** Machine-readable dates for <time> elements. */
   start: string;
   end?: string;
@@ -15,7 +17,8 @@ export const experience: Experience[] = [
   {
     company: "Amdocs Philippines",
     role: "Software Development Intern",
-    period: "Jan 2026 — Apr 2026",
+    startLabel: "Jan 2026",
+    endLabel: "Apr 2026",
     start: "2026-01",
     end: "2026-04",
     highlights: [
@@ -28,7 +31,8 @@ export const experience: Experience[] = [
   {
     company: "Dences LLC",
     role: "Developer & Automation",
-    period: "Nov 2023 — Present",
+    startLabel: "Nov 2023",
+    endLabel: "Present",
     start: "2023-11",
     current: true,
     highlights: [

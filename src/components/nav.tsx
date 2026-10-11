@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import avatar from "../../public/images/oliver-garcia-avatar.jpg";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navItems, site } from "@/content/site";
@@ -12,10 +12,14 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // Motion's scroll value is batched per frame; state only flips at the threshold.
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const next = y > 24;
+    setScrolled((prev) => (prev === next ? prev : next));
+  });
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
 
     const sections = navItems
       .map((n) => document.getElementById(n.id))
@@ -28,10 +32,7 @@ export function Nav() {
     );
     sections.forEach((s) => observer.observe(s));
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -153,9 +154,8 @@ export function Nav() {
                   <a
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className="flex items-baseline gap-4 border-b border-line py-4 text-4xl tracking-tight"
+                    className="block py-3 text-4xl tracking-tight transition-colors hover:text-accent"
                   >
-                    <span className="font-mono text-xs text-accent">0{i + 1}</span>
                     {item.label}
                   </a>
                 </motion.li>

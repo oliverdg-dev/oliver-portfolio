@@ -9,19 +9,18 @@ export function Contact() {
   const socials = getSocialLinks();
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative isolate overflow-hidden border-t border-line">
-      <div aria-hidden className="grid-lines absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_100%,black,transparent)]" />
+      <div
+        aria-hidden
+        className="absolute -bottom-1/3 left-1/2 -z-10 size-[80vmax] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-accent)_8%,transparent),transparent_60%)]"
+      />
       <Spotlight className="-z-10" />
 
       <div className="shell py-24 sm:py-36">
-        <p className="eyebrow">
-          <span className="text-accent">05</span> <span className="mx-2 text-dim">/</span> Contact
-        </p>
+        <p className="eyebrow">Contact</p>
 
         <Reveal>
-          <h2 id="contact-title" className="display mt-10 text-[clamp(3rem,10vw,10.5rem)]">
-            Let&apos;s build
-            <br />
-            something <span className="serif-accent text-accent">useful.</span>
+          <h2 id="contact-title" className="display mt-10 max-w-[14ch] text-[clamp(3rem,9vw,9rem)]">
+            Let&apos;s build something <span className="text-accent">useful.</span>
           </h2>
         </Reveal>
 
@@ -31,9 +30,10 @@ export function Contact() {
               Have a product idea, a development opportunity, or a workflow that could be better? I&apos;d love to
               hear about it.
             </p>
-            {site.availability.enabled && (
-              <AvailabilityDot label={site.availability.label} className="eyebrow mt-6 text-paper" />
-            )}
+            <div className="mt-6 flex flex-col gap-2 text-sm text-paper">
+              {site.availability.enabled && <AvailabilityDot label={site.availability.label} />}
+              {site.location && <p className="text-mute">Based in the {site.location}.</p>}
+            </div>
           </Reveal>
 
           <Reveal className="md:col-span-7" delay={0.2}>
@@ -49,7 +49,7 @@ export function Contact() {
               </span>
             </a>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Button href={`mailto:${site.email}?subject=${encodeURIComponent("Hello Oliver")}`}>Send an email</Button>
+              <Button href={`mailto:${site.email}?subject=${encodeURIComponent("Hello Oliver")}`}>Let&apos;s talk</Button>
               <CopyEmail email={site.email} />
             </div>
             {socials.length > 0 && (
