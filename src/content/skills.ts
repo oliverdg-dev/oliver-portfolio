@@ -1,9 +1,12 @@
 /**
- * Skills grouped by category. `icon` is a simple-icons export
- * (https://simpleicons.org); brands without an icon use a short typographic `glyph`.
+ * Skills grouped by category. `icon` is a simple-icons brand mark
+ * (https://simpleicons.org); entries without a brand mark use a generic Lucide
+ * icon (`symbol`) so every chip is drawn from a real icon set.
  * No proficiency percentages on purpose.
  */
 
+import type { LucideIcon } from "lucide-react";
+import { BrainCircuit, Braces, Database, FileCode2, MessageSquareCode } from "lucide-react";
 import type { SimpleIcon } from "simple-icons";
 import {
   siAirtable,
@@ -36,7 +39,7 @@ import {
   siWordpress,
 } from "simple-icons";
 
-export type Skill = { name: string; icon?: SimpleIcon; glyph?: string };
+export type Skill = { name: string; icon?: SimpleIcon; symbol?: LucideIcon };
 export type SkillGroup = { id: string; title: string; skills: Skill[] };
 
 export const skillGroups: SkillGroup[] = [
@@ -45,7 +48,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Programming & development",
     skills: [
       { name: "Python", icon: siPython },
-      { name: "SQL", glyph: "SQL" },
+      { name: "SQL", symbol: Database },
       { name: "R", icon: siR },
       { name: "JavaScript", icon: siJavascript },
       { name: "React", icon: siReact },
@@ -54,7 +57,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Flutter", icon: siFlutter },
       { name: "Dart", icon: siDart },
       { name: "Java", icon: siOpenjdk },
-      { name: "C#", glyph: "C#" },
+      { name: "C#", symbol: FileCode2 },
       { name: "HTML", icon: siHtml5 },
       { name: "CSS", icon: siCss },
       { name: "Swift", icon: siSwift },
@@ -65,12 +68,12 @@ export const skillGroups: SkillGroup[] = [
     title: "AI & LLMs",
     skills: [
       { name: "Claude", icon: siClaude },
-      { name: "OpenAI", glyph: "OA" },
+      { name: "OpenAI", symbol: BrainCircuit },
       { name: "Gemini", icon: siGooglegemini },
-      { name: "Grok", glyph: "GR" },
+      { name: "Grok", symbol: BrainCircuit },
       { name: "DeepSeek", icon: siDeepseek },
-      { name: "Prompt Engineering", glyph: "›_" },
-      { name: "API Integration", glyph: "{}" },
+      { name: "Prompt Engineering", symbol: MessageSquareCode },
+      { name: "API Integration", symbol: Braces },
     ],
   },
   {

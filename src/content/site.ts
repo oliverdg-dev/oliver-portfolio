@@ -29,7 +29,7 @@ export const site = {
   headlineAccent: "complex.",
   /** Keep under 20 words: the hero is a single moment, not a bio. */
   intro:
-    "I build full-stack products, AI integrations and workflow automation that turn complex processes into reliable, usable software.",
+    "I'm Oliver Garcia. I build full-stack products, AI integrations and workflow automation that turn complex processes into reliable software.",
 
   description:
     "Oliver Garcia is a software developer building full-stack products, AI integrations and workflow automation. Computer Science, University of Santo Tomas.",

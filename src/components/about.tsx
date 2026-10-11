@@ -42,7 +42,6 @@ export function About() {
 
         <div className="lg:col-span-8">
           <Reveal>
-            <p className="eyebrow mb-8">About</p>
             <h2 id="about-title" className="sr-only">
               About Oliver
             </h2>

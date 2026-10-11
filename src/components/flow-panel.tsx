@@ -78,7 +78,7 @@ export function FlowPanel({ flow, metric, size = "feature", label }: FlowPanelPr
             transition={{ duration: 1.2, ease, delay: 0.2 + flow.length * 0.12 }}
           />
           <p
-            className={`font-medium leading-none tracking-[-0.05em] text-paper ${
+            className={`font-medium leading-none tabular-nums tracking-[-0.04em] text-paper ${
               feature ? "text-[clamp(3.5rem,9vw,7.5rem)]" : "text-[clamp(3rem,6vw,4.5rem)]"
             }`}
           >

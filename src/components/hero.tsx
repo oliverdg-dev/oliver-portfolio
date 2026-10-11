@@ -14,7 +14,7 @@ const headlineLines = (() => {
 })();
 
 /**
- * Hero: one label line, a two-line headline, a sub-20-word intro and one CTA row.
+ * Hero: a two-line headline, a sub-20-word intro that names Oliver, and one CTA row.
  * Everything else (focus areas, location, metrics) lives in later sections.
  */
 export function Hero() {
@@ -35,18 +35,6 @@ export function Hero() {
       <Spotlight className="-z-10" />
 
       <div className="shell flex flex-1 flex-col justify-center gap-10 py-16 sm:gap-12 lg:py-20">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="eyebrow flex flex-wrap items-center gap-x-6 gap-y-3"
-        >
-          <span className="text-paper">
-            {site.name}, {site.role}
-          </span>
-          {site.availability.enabled && <AvailabilityDot label={site.availability.label} />}
-        </motion.p>
-
         <h1 id="hero-title" className="display max-w-[22ch] text-[clamp(2.6rem,4.25vw,4.5rem)] leading-[1.02] lg:max-w-none">
           <span className="sr-only">
             {site.shortName}, {site.role}.{" "}
@@ -86,7 +74,7 @@ export function Hero() {
             transition={{ duration: 0.9, ease, delay: 0.5 + lastWord * 0.05 }}
             className="flex flex-wrap items-center gap-x-3 gap-y-4"
           >
-            <Button href="#work">Explore Selected Work</Button>
+            <Button href="#work">Explore selected work</Button>
             <Button href="#contact" variant="ghost">
               Let&apos;s talk
             </Button>
@@ -98,6 +86,9 @@ export function Hero() {
                   </li>
                 ))}
               </ul>
+            )}
+            {site.availability.enabled && (
+              <AvailabilityDot label={site.availability.label} className="basis-full text-sm text-mute" />
             )}
           </motion.div>
         </div>

@@ -66,8 +66,9 @@ Without screenshots, each project shows a **type-led panel**: its real workflow 
 
 - **Color:** ink `#0a0a0b` surfaces, paper `#edece7` type, one lime accent `#c6f35a`, 1px white-alpha hairlines. The tokens live in `@theme` in `src/app/globals.css`.
 - **Themes:** dark by default, plus a light theme. The nav toggle saves the visitor's choice in `localStorage`; with no saved choice the OS setting is used. Both themes swap the same tokens (`:root[data-theme="light"]` in `globals.css`), so components never branch. Use `bg-tint/…` rather than `bg-white/…` for subtle overlays so they work in both themes.
-- **Type:** Geist for UI and display, Geist Mono for small labels, both self-hosted via `next/font`. Emphasis uses the accent colour in the same font, never a second typeface.
-- **Labels:** small uppercase labels are rationed to three on the page (hero, About, Contact). Section numbering and em-dashes are not used.
+- **Type:** Geist only, self-hosted via `next/font`. Emphasis uses the accent colour in the same font, never a second typeface or monospace as decoration. Tracking never goes tighter than -0.04em.
+- **Labels:** no kicker/eyebrow labels above headings, no section numbering, no em-dashes. Headings carry their own weight.
+- **Contrast:** all text tokens meet WCAG AA (4.5:1) in both themes; check new colours before adding them.
 - **Shape:** surfaces use a 12px radius; buttons, tags and chips are full pills.
 - **Layout:** a 12-column grid inside `.shell` (max 1440px, fluid gutters). Asymmetric splits are 7/5, 3/9 and 4/8.
 - **Motion:** one easing curve (`cubic-bezier(0.16, 1, 0.3, 1)`). The hero uses masked word reveals, and sections use reveal-once on scroll. Project visuals zoom gently on hover, and the pointer spotlight runs only on fine pointers. `MotionConfig reducedMotion="user"` and a global CSS rule honour `prefers-reduced-motion`.

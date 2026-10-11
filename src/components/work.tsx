@@ -17,11 +17,11 @@ function ScreenStack({ screens }: { screens: NonNullable<Project["screens"]> }) 
         aria-hidden
         className="pointer-events-none absolute -left-1/4 top-0 size-[80%] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--color-accent)_9%,transparent),transparent_65%)]"
       />
-      <div className="relative w-[90%] overflow-hidden rounded-lg border border-line-strong shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)] transition-transform duration-[1.2s] ease-out-expo group-hover:-translate-y-1 sm:w-[78%]">
+      <div className="relative w-[90%] overflow-hidden rounded-lg shadow-[0_40px_80px_-30px_rgb(0_0_0/0.6)] transition-transform duration-[1.2s] ease-out-expo group-hover:-translate-y-1 sm:w-[78%]">
         <Image src={main.src} alt={main.alt} width={main.width} height={main.height} sizes="(min-width: 1024px) 60vw, 90vw" className="h-auto w-full" />
       </div>
       {overlay && (
-        <div className="relative -mt-[18%] ml-auto w-[62%] overflow-hidden rounded-lg border border-line-strong shadow-[0_40px_80px_-20px_rgb(0_0_0/0.7)] transition-transform duration-700 ease-out-expo group-hover:-translate-y-3 sm:-mt-[24%] sm:w-[52%]">
+        <div className="relative -mt-[18%] ml-auto w-[62%] overflow-hidden rounded-lg shadow-[0_40px_80px_-20px_rgb(0_0_0/0.7)] transition-transform duration-700 ease-out-expo group-hover:-translate-y-3 sm:-mt-[24%] sm:w-[52%]">
           <Image src={overlay.src} alt={overlay.alt} width={overlay.width} height={overlay.height} sizes="(min-width: 1024px) 40vw, 62vw" className="h-auto w-full" />
         </div>
       )}
@@ -49,7 +49,7 @@ function Tags({ tags }: { tags: string[] }) {
   return (
     <ul className="flex flex-wrap gap-1.5" aria-label="Technologies">
       {tags.map((t) => (
-        <li key={t} className="rounded-full border border-line px-2.5 py-1 font-mono text-[11px] text-mute">
+        <li key={t} className="rounded-full border border-line px-2.5 py-1 text-xs text-mute">
           {t}
         </li>
       ))}
@@ -84,7 +84,7 @@ function MoreResults({ results }: { results: Project["results"] }) {
       {results.map((r) => (
         <div key={r.label} className="flex flex-col-reverse gap-1">
           <dt className="text-sm text-mute">{r.label}</dt>
-          <dd className="text-3xl font-medium tracking-[-0.03em]">{r.value}</dd>
+          <dd className="text-3xl font-medium tabular-nums tracking-[-0.03em]">{r.value}</dd>
         </div>
       ))}
     </dl>

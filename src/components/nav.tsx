@@ -17,6 +17,8 @@ export function Nav() {
   useMotionValueEvent(scrollY, "change", (y) => {
     const next = y > 24;
     setScrolled((prev) => (prev === next ? prev : next));
+    // Above the first section nothing is "current", so clear the highlight.
+    if (y < window.innerHeight * 0.5) setActive((prev) => (prev === "" ? prev : ""));
   });
 
   useEffect(() => {
@@ -75,7 +77,7 @@ export function Nav() {
           </span>
           <span className="flex flex-col leading-tight">
             <span className="text-sm tracking-tight transition-colors group-hover:text-accent">{site.shortName}</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-dim">
+            <span className="text-xs text-dim">
               {site.role}
               <span className="hidden lg:inline"> · AI &amp; Automation</span>
             </span>

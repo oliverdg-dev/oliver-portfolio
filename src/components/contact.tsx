@@ -16,10 +16,8 @@ export function Contact() {
       <Spotlight className="-z-10" />
 
       <div className="shell py-24 sm:py-36">
-        <p className="eyebrow">Contact</p>
-
         <Reveal>
-          <h2 id="contact-title" className="display mt-10 max-w-[14ch] text-[clamp(3rem,9vw,9rem)]">
+          <h2 id="contact-title" className="display max-w-[14ch] text-[clamp(3rem,8vw,6rem)]">
             Let&apos;s build something <span className="text-accent">useful.</span>
           </h2>
         </Reveal>

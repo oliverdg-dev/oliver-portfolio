@@ -3,7 +3,7 @@ import { site } from "@/content/site";
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="shell flex flex-col gap-4 py-8 font-mono text-[11px] text-dim sm:flex-row sm:items-center sm:justify-between">
+      <div className="shell flex flex-col gap-4 py-8 text-sm text-dim sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {new Date().getFullYear()} {site.name}
         </p>

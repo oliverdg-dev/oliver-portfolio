@@ -41,7 +41,7 @@ export function ExperienceSection() {
           {achievements.map((a, i) => (
             <li key={a.title}>
               <Reveal delay={i * 0.08} className="flex flex-col gap-3">
-                <span className="text-[clamp(3rem,7vw,5.5rem)] font-medium leading-none tracking-[-0.05em] text-accent">
+                <span className="text-[clamp(3rem,7vw,5.5rem)] font-medium leading-none tracking-[-0.04em] text-accent">
                   {a.distinction}
                 </span>
                 <span className="text-lg leading-snug text-paper">{a.title}</span>

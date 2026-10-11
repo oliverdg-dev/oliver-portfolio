@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import Script from "next/script";
 import { MotionProvider } from "@/components/motion-provider";
 import { themeBootScript } from "@/lib/theme";
@@ -7,7 +7,6 @@ import { site } from "@/content/site";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 const title = `${site.shortName} | ${site.role}`;
 
@@ -67,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={`${geist.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

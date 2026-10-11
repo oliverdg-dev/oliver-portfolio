@@ -13,14 +13,13 @@
   --color-line: rgb(255 255 255 / 0.08);
   --color-line-strong: rgb(255 255 255 / 0.16);
   --color-paper: #edece7;
-  --color-mute: #9a9aa1;
-  --color-dim: #63636b;
+  --color-mute: #a8a8af;
+  --color-dim: #8a8a92;
   --color-accent: #c6f35a;
   --color-accent-ink: #0d1400;
   --color-tint: #ffffff;
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -55,9 +54,9 @@
   --color-line: rgb(0 0 0 / 0.09);
   --color-line-strong: rgb(0 0 0 / 0.18);
   --color-paper: #121214;
-  --color-mute: #55555c;
-  --color-dim: #7a7a82;
-  --color-accent: #4d7c0f;
+  --color-mute: #47474d;
+  --color-dim: #5f5f66;
+  --color-accent: #3f6a0a;
   --color-accent-ink: #f5ffe3;
   --color-tint: #000000;
   color-scheme: light;
@@ -71,9 +70,9 @@
     --color-line: rgb(0 0 0 / 0.09);
     --color-line-strong: rgb(0 0 0 / 0.18);
     --color-paper: #121214;
-    --color-mute: #55555c;
-    --color-dim: #7a7a82;
-    --color-accent: #4d7c0f;
+    --color-mute: #47474d;
+    --color-dim: #5f5f66;
+    --color-accent: #3f6a0a;
     --color-accent-ink: #f5ffe3;
     --color-tint: #000000;
     color-scheme: light;
@@ -104,6 +103,15 @@
     text-rendering: optimizeLegibility;
     overflow-x: clip;
   }
+  /* Browser surfaces carry the palette too. */
+  html {
+    caret-color: var(--color-accent);
+    scrollbar-color: var(--color-line-strong) var(--color-ink);
+    scrollbar-width: thin;
+  }
+  a { text-underline-offset: 0.2em; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
   ::selection {
     background: var(--color-accent);
     color: var(--color-accent-ink);
@@ -130,17 +138,9 @@
     margin-inline: auto;
     padding-inline: clamp(1rem, 4vw, 3.5rem);
   }
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    line-height: 1rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-mute);
-  }
   .display {
     font-weight: 500;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.035em;
     line-height: 0.92;
   }
   /* Pointer-reactive spotlight; --mx / --my are set by <Spotlight /> */

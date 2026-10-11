@@ -11,7 +11,7 @@ function brandColor(hex: string) {
 }
 
 function SkillChip({ skill }: { skill: Skill }) {
-  const color = skill.icon ? brandColor(skill.icon.hex) : "#c6f35a";
+  const color = skill.icon ? brandColor(skill.icon.hex) : "var(--color-accent)";
   return (
     <li
       className="group/chip flex items-center gap-2.5 rounded-full border border-line py-2 pl-2.5 pr-4 text-sm text-paper/85 transition-[border-color,color,background-color] duration-300 hover:border-line-strong hover:bg-tint/[0.03] hover:text-paper"
@@ -22,11 +22,9 @@ function SkillChip({ skill }: { skill: Skill }) {
           <svg viewBox="0 0 24 24" className="size-4" fill="currentColor" aria-hidden>
             <path d={skill.icon.path} />
           </svg>
-        ) : (
-          <span className="font-mono text-[10px] font-medium leading-none" aria-hidden>
-            {skill.glyph}
-          </span>
-        )}
+        ) : skill.symbol ? (
+          <skill.symbol className="size-4" aria-hidden />
+        ) : null}
       </span>
       {skill.name}
     </li>
