@@ -41,8 +41,7 @@ export const site = {
   links: {
     /** Verified from the authenticated GitHub CLI account (oliverdg-dev). */
     github: "https://github.com/oliverdg-dev",
-    /** TODO(oliver): add your LinkedIn profile URL. Hidden while empty. */
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/oliver-deniel-garcia",
     /** Optional: URL to a hosted PDF résumé. Hidden while empty. */
     resume: "",
   },

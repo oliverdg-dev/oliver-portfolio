@@ -37,7 +37,7 @@ All content lives in typed files in `src/content/`, so there's no need to touch 
 - **Unknown links stay empty (`""`)** and are not rendered, so there are no fake destinations. Currently set:
   - GitHub profile: `github.com/oliverdg-dev` (verified from the authenticated GitHub account).
   - Repos linked: `assistant-agency` (recruitment platform), `vetting-pipeline`, `MealconomyRecipeFinder`. I checked each against its README.
-  - **TODO:** `links.linkedin` in `site.ts` is empty. Add your URL and it will show up in the hero and contact section.
+  - LinkedIn: `linkedin.com/in/oliver-deniel-garcia`.
   - Shopify imagery, Teamian Web and the Amdocs project have no public repo, so they show no repo link.
 - `results` holds only documented outcomes. Don't add star counts, user numbers or percentages unless they're verifiable.
 - `featured: true` projects get the large case-study layout. The rest go in the compact "More projects" grid. `order` controls numbering.
