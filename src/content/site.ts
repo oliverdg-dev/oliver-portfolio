@@ -23,7 +23,7 @@ export const site = {
   location: "Philippines",
   email: "oli.deniel.garcia@gmail.com",
 
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://oliver-garcia.vercel.app",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://oliver-portfolio-chi.vercel.app",
 
   headline: ["Engineering software.", "Automating the complex.", "Designing better experiences."],
   intro:
