@@ -114,12 +114,14 @@
     outline-offset: 3px;
     border-radius: 2px;
   }
+  /* Reduced motion: no smooth scrolling and no looping/ambient movement.
+     Short fades and hover/colour transitions stay, so the page still feels
+     alive without moving things around. (Motion components fall back to
+     opacity-only animations via <MotionConfig reducedMotion="user">.) */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
+      animation-play-state: paused !important;
     }
   }
 }

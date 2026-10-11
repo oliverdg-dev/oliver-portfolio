@@ -64,8 +64,8 @@ export function Hero() {
                   <span key={`${word}-${i}`} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
                     <motion.span
                       className={`inline-block ${accent ? "serif-accent pr-[0.06em] text-accent" : ""} ${li === 2 ? "text-paper/55" : ""}`}
-                      initial={{ y: "105%" }}
-                      animate={{ y: 0 }}
+                      initial={{ y: "105%", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 1.1, ease, delay: 0.35 + i * 0.06 }}
                     >
                       {word}
